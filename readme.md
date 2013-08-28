@@ -1,6 +1,9 @@
-# Laravel 4 w/ Vagrant
+# Laravel 4 + Yeoman w/ Vagrant
 
 A basic Ubuntu 12.04 Vagrant setup with [Laravel4](http://laravel.com/docs) and PHP 5.4.
+
+I added nodejs, npm and yeoman to use [ember.js](http://emberjs.com) for frontend development and Laravel4 as backend API. You can choose another frontend framework if you like. 
+Both is accessible through one virtual host, so you don't need to handle [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
 
 ## Requirements
 
@@ -15,6 +18,8 @@ A basic Ubuntu 12.04 Vagrant setup with [Laravel4](http://laravel.com/docs) and 
 * run `vagrant up` inside the newly created directory
 * (the first time you run vagrant it will need to fetch the virtual box image which is ~300mb so depending on your download speed this could take some time)
 * Vagrant will then use puppet to provision the base virtual box with our LAMP stack (this could take a few minutes) also note that composer will need to fetch all of the packages defined in the app's composer.json which will add some more time to the first provisioning run
+
+### Laravel
 * You can verify that everything was successful by opening http://localhost:8888 in a browser
 
 *Note: You may have to change permissions on the www/app/storage folder to 777 under the host OS* 
@@ -62,6 +67,14 @@ To enable XDebug:
 
 _Note: All XDebug settings can be configured in the php.ini template at `puppet/modules/php/templates/php.ini.erb`_
 
+### Use [Ember Generator](https://github.com/yeoman/generator-ember#usage) to an Ember app
+* SSH into VM
+* `npm install -g generator-ember`
+* go to `/vagrant/www/public`
+* `yo ember`
+* `npm install -g grunt-mocha` 
+* `grunt server`
+A welcome page should appear in your browser.
 
 ### Vagrant
 

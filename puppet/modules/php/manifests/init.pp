@@ -28,7 +28,7 @@ class php
     # exec 
     # { 
     #     "sed -i 's|#|//|' /etc/php5/cli/conf.d/mcrypt.ini":
-  		#     require => Package['php5'],
+        #     require => Package['php5'],
     # }
 
     file 
