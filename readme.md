@@ -5,6 +5,8 @@ A basic Ubuntu 12.04 Vagrant setup with [Laravel4](http://laravel.com/docs) and 
 I added nodejs, npm and yeoman to use [ember.js](http://emberjs.com) for frontend development and Laravel4 as backend API. You can choose another frontend framework if you like. 
 Both is accessible through one virtual host, so you don't need to handle [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing).
 
+PostgreSQL caused some errors for me while `vagrant up` and because I don't use it I commented out.
+
 ## Requirements
 
 * VirtualBox - Free virtualization software [Downloads](https://www.virtualbox.org/wiki/Downloads)
