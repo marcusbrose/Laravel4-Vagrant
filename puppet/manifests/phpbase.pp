@@ -11,7 +11,7 @@ exec
 { 
     'apt-get update':
         command => '/usr/bin/apt-get update',
-        require => Exec['add php54 apt-repo'],
+        require => Exec['add php54 apt-repo']
 }
 
 include bootstrap
@@ -24,7 +24,9 @@ include phpmyadmin
 include beanstalkd
 include redis
 include memcached
+
 include laravel_app
+
 include nodejs
 include yeoman
 

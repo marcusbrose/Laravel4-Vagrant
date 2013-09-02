@@ -21,7 +21,7 @@ class mysql
     # transitioned to the new empty root password.
     exec
     {
-        "set-mysql-password":
+    	"set-mysql-password":
             onlyif => "mysqladmin -uroot -proot status",
             command => "mysqladmin -uroot -proot password $mysqlPassword",
             require => Service["mysql"],
