@@ -22,13 +22,14 @@ class laravel_app
 	# the composer create-project is called
 	exec { 'clean www directory': 
 		command => "/bin/sh -c 'cd /var/www && find -mindepth 1 -delete'",
-		unless => [ "test -f /var/www/composer.json", "test -d /var/www/app" ]
+		unless => [ "test -f /var/www/composer.json", "test -d /var/www/app" ],
+		require => [Exec['global composer'], Package['git-core']],
 	}
 
 
 	exec { 'create laravel project':
 		command => "/bin/sh -c 'cd /var/www/ && composer create-project laravel/laravel . -n --prefer-dist'",
-		require => [Exec['global composer'], Package['git-core'], Exec['clean www directory']],
+		require => [Exec['clean www directory']],
 		creates => "/var/www/composer.json",
 		timeout => 1800,
 	}
